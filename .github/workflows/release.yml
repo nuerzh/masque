@@ -76,18 +76,20 @@ jobs:
         uses: ilammy/setup-nasm@v1
 
       - name: Build pluggable transports
+        working-directory: aether
         shell: bash
         run: |
           ls -alh
-          bash ./pt-build.sh \
+          bash ../pt-build.sh \
             windows \
             amd64 \
             "$PWD/pt"
 
       - name: Build psiphon
+        working-directory: aether
         shell: bash
         run: |
-          bash ./psiphon-build.sh \
+          bash ../psiphon-build.sh \
             windows \
             amd64 \
             "$PWD/pt"
