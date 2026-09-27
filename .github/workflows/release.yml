@@ -57,10 +57,11 @@ jobs:
 
       - name: Unzip archive
         shell: pwsh
+        working-directory: ${{ github.workspace }}
         run: |
           Expand-Archive `
-            -Path "Aether.zip" `
-            -DestinationPath "." `
+            -Path "${{ github.workspace }}\Aether.zip" `
+            -DestinationPath "${{ github.workspace }}" `
             -Force
 
       - name: Install Rust toolchain
