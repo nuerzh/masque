@@ -45,10 +45,6 @@ jobs:
 
     runs-on: windows-latest
 
-    defaults:
-      run:
-        working-directory: aether
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -57,11 +53,10 @@ jobs:
 
       - name: Unzip archive
         shell: pwsh
-        working-directory: ${{ github.workspace }}
         run: |
           Expand-Archive `
-            -Path "${{ github.workspace }}\Aether.zip" `
-            -DestinationPath "${{ github.workspace }}" `
+            -Path "Aether.zip" `
+            -DestinationPath "." `
             -Force
 
       - name: Install Rust toolchain
@@ -83,7 +78,7 @@ jobs:
       - name: Build pluggable transports
         shell: bash
         run: |
-          bash ../pt-build.sh \
+          bash ./pt-build.sh \
             windows \
             amd64 \
             "$PWD/pt"
@@ -91,12 +86,13 @@ jobs:
       - name: Build psiphon
         shell: bash
         run: |
-          bash ../psiphon-build.sh \
+          bash ./psiphon-build.sh \
             windows \
             amd64 \
             "$PWD/pt"
 
       - name: Build release binary
+        working-directory: aether
         run: |
           cargo build \
             --release \
@@ -104,6 +100,7 @@ jobs:
             --target x86_64-pc-windows-msvc
 
       - name: Package archive
+        working-directory: aether
         shell: pwsh
         run: |
           Copy-Item `
