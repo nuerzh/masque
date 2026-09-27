@@ -78,6 +78,7 @@ jobs:
       - name: Build pluggable transports
         shell: bash
         run: |
+          ls -alh
           bash ./pt-build.sh \
             windows \
             amd64 \
