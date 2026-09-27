@@ -95,10 +95,7 @@ jobs:
       - name: Build release binary
         working-directory: aether
         run: |
-          cargo build \
-            --release \
-            --features tor \
-            --target x86_64-pc-windows-msvc
+          cargo build --release --features tor --target x86_64-pc-windows-msvc
 
       - name: Package archive
         working-directory: aether
