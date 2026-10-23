@@ -97,7 +97,7 @@ jobs:
       - name: Build release binary
         working-directory: aether
         run: |
-          cargo build --release --features tor --target x86_64-pc-windows-msvc
+          cargo build --release --target x86_64-pc-windows-msvc
 
       - name: Package archive
         working-directory: aether
@@ -210,7 +210,7 @@ jobs:
         run: |
           cargo build \
             --release \
-            --features tor \
+            \
             --target ${{ matrix.target }}
 
       - name: Package archive
@@ -337,7 +337,7 @@ jobs:
         run: |
           cargo build \
             --release \
-            --features tor \
+            \
             --target ${{ matrix.target }}
 
       - name: Package archive
@@ -437,7 +437,7 @@ jobs:
         run: |
           cargo build \
             --release \
-            --features tor \
+            \
             --target armv7-unknown-linux-gnueabihf
 
       - name: Package archive
@@ -545,7 +545,7 @@ jobs:
         run: |
           cargo build \
             --release \
-            --features tor \
+            \
             --target armv7-unknown-linux-musleabihf
 
       - name: Package archive
@@ -681,7 +681,7 @@ jobs:
         run: |
           cargo build \
             --release \
-            --features tor \
+            \
             --target ${{ matrix.target }}
 
       - name: Package archive
@@ -819,7 +819,7 @@ jobs:
             --platform 24 \
             build \
             --release \
-            --features tor
+           
 
       - name: Package archive
         run: |
