@@ -75,24 +75,24 @@ jobs:
       - name: Install NASM
         uses: ilammy/setup-nasm@v1
 
-      - name: Build pluggable transports
-        working-directory: aether
-        shell: bash
-        run: |
-          ls -alh
-          bash ../pt-build.sh \
-            windows \
-            amd64 \
-            "$PWD/pt"
+      # - name: Build pluggable transports
+      #   working-directory: aether
+      #   shell: bash
+      #   run: |
+      #     ls -alh
+      #     bash ../pt-build.sh \
+      #       windows \
+      #       amd64 \
+      #       "$PWD/pt"
 
-      - name: Build psiphon
-        working-directory: aether
-        shell: bash
-        run: |
-          bash ../psiphon-build.sh \
-            windows \
-            amd64 \
-            "$PWD/pt"
+      # - name: Build psiphon
+      #   working-directory: aether
+      #   shell: bash
+      #   run: |
+      #     bash ../psiphon-build.sh \
+      #       windows \
+      #       amd64 \
+      #       "$PWD/pt"
 
       - name: Build release binary
         working-directory: aether
@@ -190,21 +190,21 @@ jobs:
       - name: Install CMake and Ninja
         uses: lukka/get-cmake@latest
 
-      - name: Build pluggable transports
-        shell: bash
-        run: |
-          bash ../pt-build.sh \
-            ${{ matrix.goos }} \
-            ${{ matrix.goarch }} \
-            "$PWD/pt"
+      # - name: Build pluggable transports
+      #   shell: bash
+      #   run: |
+      #     bash ../pt-build.sh \
+      #       ${{ matrix.goos }} \
+      #       ${{ matrix.goarch }} \
+      #       "$PWD/pt"
 
-      - name: Build psiphon
-        shell: bash
-        run: |
-          bash ../psiphon-build.sh \
-            ${{ matrix.goos }} \
-            ${{ matrix.goarch }} \
-            "$PWD/pt"
+      # - name: Build psiphon
+      #   shell: bash
+      #   run: |
+      #     bash ../psiphon-build.sh \
+      #       ${{ matrix.goos }} \
+      #       ${{ matrix.goarch }} \
+      #       "$PWD/pt"
 
       - name: Build release binary
         run: |
@@ -319,19 +319,19 @@ jobs:
         run: |
           rustup target add ${{ matrix.target }}
 
-      - name: Build pluggable transports
-        run: |
-          bash ../pt-build.sh \
-            ${{ matrix.goos }} \
-            ${{ matrix.goarch }} \
-            "$PWD/pt"
+      # - name: Build pluggable transports
+      #   run: |
+      #     bash ../pt-build.sh \
+      #       ${{ matrix.goos }} \
+      #       ${{ matrix.goarch }} \
+      #       "$PWD/pt"
 
-      - name: Build psiphon
-        run: |
-          bash ../psiphon-build.sh \
-            ${{ matrix.goos }} \
-            ${{ matrix.goarch }} \
-            "$PWD/pt"
+      # - name: Build psiphon
+      #   run: |
+      #     bash ../psiphon-build.sh \
+      #       ${{ matrix.goos }} \
+      #       ${{ matrix.goarch }} \
+      #       "$PWD/pt"
 
       - name: Build release binary
         run: |
@@ -417,21 +417,21 @@ jobs:
             gcc-arm-linux-gnueabihf \
             g++-arm-linux-gnueabihf
 
-      - name: Build pluggable transports
-        run: |
-          bash ../pt-build.sh \
-            linux \
-            arm \
-            "$PWD/pt" \
-            7
+      # - name: Build pluggable transports
+      #   run: |
+      #     bash ../pt-build.sh \
+      #       linux \
+      #       arm \
+      #       "$PWD/pt" \
+      #       7
 
-      - name: Build psiphon
-        run: |
-          bash ../psiphon-build.sh \
-            linux \
-            arm \
-            "$PWD/pt" \
-            7
+      # - name: Build psiphon
+      #   run: |
+      #     bash ../psiphon-build.sh \
+      #       linux \
+      #       arm \
+      #       "$PWD/pt" \
+      #       7
 
       - name: Build release binary
         run: |
@@ -525,21 +525,21 @@ jobs:
             --strip-components=1 \
             -xJf /tmp/musl-cross.tar.xz
 
-      - name: Build pluggable transports
-        run: |
-          bash ../pt-build.sh \
-            linux \
-            arm \
-            "$PWD/pt" \
-            7
+      # - name: Build pluggable transports
+      #   run: |
+      #     bash ../pt-build.sh \
+      #       linux \
+      #       arm \
+      #       "$PWD/pt" \
+      #       7
 
-      - name: Build psiphon
-        run: |
-          bash ../psiphon-build.sh \
-            linux \
-            arm \
-            "$PWD/pt" \
-            7
+      # - name: Build psiphon
+      #   run: |
+      #     bash ../psiphon-build.sh \
+      #       linux \
+      #       arm \
+      #       "$PWD/pt" \
+      #       7
 
       - name: Build release binary
         run: |
@@ -663,19 +663,19 @@ jobs:
 
           echo "BINDGEN_EXTRA_CLANG_ARGS_${triple}=--target=${{ matrix.target }} --sysroot=/opt/musl-cross/${{ matrix.cross_prefix }}" >> "$GITHUB_ENV"
 
-      - name: Build pluggable transports
-        run: |
-          bash ../pt-build.sh \
-            ${{ matrix.goos }} \
-            ${{ matrix.goarch }} \
-            "$PWD/pt"
+      # - name: Build pluggable transports
+      #   run: |
+      #     bash ../pt-build.sh \
+      #       ${{ matrix.goos }} \
+      #       ${{ matrix.goarch }} \
+      #       "$PWD/pt"
 
-      - name: Build psiphon
-        run: |
-          bash ../psiphon-build.sh \
-            ${{ matrix.goos }} \
-            ${{ matrix.goarch }} \
-            "$PWD/pt"
+      # - name: Build psiphon
+      #   run: |
+      #     bash ../psiphon-build.sh \
+      #       ${{ matrix.goos }} \
+      #       ${{ matrix.goarch }} \
+      #       "$PWD/pt"
 
       - name: Build release binary
         run: |
@@ -793,21 +793,21 @@ jobs:
         run: |
           cargo install cargo-ndk --locked
 
-      - name: Build pluggable transports
-        run: |
-          bash ../pt-build.sh \
-            linux \
-            ${{ matrix.goarch }} \
-            "$PWD/pt" \
-            "${{ matrix.goarm }}"
+      # - name: Build pluggable transports
+      #   run: |
+      #     bash ../pt-build.sh \
+      #       linux \
+      #       ${{ matrix.goarch }} \
+      #       "$PWD/pt" \
+      #       "${{ matrix.goarm }}"
 
-      - name: Build psiphon
-        run: |
-          bash ../psiphon-build.sh \
-            linux \
-            ${{ matrix.goarch }} \
-            "$PWD/pt" \
-            "${{ matrix.goarm }}"
+      # - name: Build psiphon
+      #   run: |
+      #     bash ../psiphon-build.sh \
+      #       linux \
+      #       ${{ matrix.goarch }} \
+      #       "$PWD/pt" \
+      #       "${{ matrix.goarm }}"
 
       - name: Build release binary
         env:
