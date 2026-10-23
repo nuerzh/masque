@@ -103,16 +103,16 @@ jobs:
         working-directory: aether
         shell: pwsh
         run: |
-          Copy-Item `
-            -Recurse `
-            -Force `
-            pt `
-            target/x86_64-pc-windows-msvc/release/pt
+          # Copy-Item `
+          #   -Recurse `
+          #   -Force `
+          #   pt `
+          #   target/x86_64-pc-windows-msvc/release/pt
 
           Compress-Archive `
             -Path `
               target/x86_64-pc-windows-msvc/release/aether.exe, `
-              target/x86_64-pc-windows-msvc/release/pt, `
+              # target/x86_64-pc-windows-msvc/release/pt, `
               run-aether.bat `
             -DestinationPath `
               aether-windows-x86_64.zip
@@ -215,16 +215,16 @@ jobs:
 
       - name: Package archive
         run: |
-          cp -R \
-            pt \
-            target/${{ matrix.target }}/release/pt
+          # cp -R \
+          #   pt \
+          #   target/${{ matrix.target }}/release/pt
 
           cd target/${{ matrix.target }}/release
 
           tar -czf \
             ../../../${{ matrix.archive }} \
-            aether \
-            pt
+            aether
+            # pt
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -342,16 +342,16 @@ jobs:
 
       - name: Package archive
         run: |
-          cp -R \
-            pt \
-            target/${{ matrix.target }}/release/pt
+          # cp -R \
+          #   pt \
+          #   target/${{ matrix.target }}/release/pt
 
           cd target/${{ matrix.target }}/release
 
           tar -czf \
             ../../../${{ matrix.archive }} \
-            aether \
-            pt
+            aether
+            # pt
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -442,16 +442,16 @@ jobs:
 
       - name: Package archive
         run: |
-          cp -R \
-            pt \
-            target/armv7-unknown-linux-gnueabihf/release/pt
+          # cp -R \
+          #   pt \
+          #   target/armv7-unknown-linux-gnueabihf/release/pt
 
           cd target/armv7-unknown-linux-gnueabihf/release
 
           tar -czf \
             ../../../aether-linux-armv7.tar.gz \
-            aether \
-            pt
+            aether
+            # pt
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -550,16 +550,16 @@ jobs:
 
       - name: Package archive
         run: |
-          cp -R \
-            pt \
-            target/armv7-unknown-linux-musleabihf/release/pt
+          # cp -R \
+          #   pt \
+          #   target/armv7-unknown-linux-musleabihf/release/pt
 
           cd target/armv7-unknown-linux-musleabihf/release
 
           tar -czf \
             ../../../aether-linux-armv7-musl.tar.gz \
-            aether \
-            pt
+            aether
+            # pt
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -686,16 +686,16 @@ jobs:
 
       - name: Package archive
         run: |
-          cp -R \
-            pt \
-            target/${{ matrix.target }}/release/pt
+          # cp -R \
+          #   pt \
+          #   target/${{ matrix.target }}/release/pt
 
           cd target/${{ matrix.target }}/release
 
           tar -czf \
             ../../../${{ matrix.archive }} \
-            aether \
-            pt
+            aether
+            # pt
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -823,16 +823,16 @@ jobs:
 
       - name: Package archive
         run: |
-          cp -R \
-            pt \
-            target/${{ matrix.target }}/release/pt
+          # cp -R \
+          #   pt \
+          #   target/${{ matrix.target }}/release/pt
 
           cd target/${{ matrix.target }}/release
 
           tar -czf \
             ../../../${{ matrix.archive }} \
-            aether \
-            pt
+            aether
+            # pt
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
